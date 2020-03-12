@@ -11,7 +11,7 @@ router.post('/user', async (req, res) => {
         res.status(201).send({ user, token });
     } catch (error) {
         res.status(400);
-        res.send(error.message);
+        res.send(error);
     }
 });
 
@@ -22,7 +22,7 @@ router.post('/user/login', async (req, res) => {
         res.send({ user: user, token });
 
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).send(error);
     }
 });
 
@@ -34,7 +34,7 @@ router.post('/user/logout', auth, async (req, res) => {
         await req.user.save();
         res.send("You have logged out!")
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error)
     } 
 })
 
@@ -44,7 +44,7 @@ router.post('/user/logoutAll', auth, async (req, res) => {
         await req.user.save();
         res.status(200).send("You have logged out of all devices");
     } catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     }
 })
 
@@ -61,7 +61,7 @@ router.get('/users/with/name/:name', async (req, res) => {
         }
         res.send(users);
     } catch(error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     }
 });
 
@@ -74,7 +74,7 @@ router.get('/users/with/age/:age', async (req, res) => {
         }
         res.send(users);
     } catch(error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     };
 });
 
@@ -89,7 +89,7 @@ router.get('/users/with/name/:name/age/:age', async (req, res) => {
         }
         res.send(users);
     }catch(error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     };
 });
 
@@ -108,7 +108,7 @@ router.patch('/user/profile', auth, async (req, res) => {
         res.send(req.user);
 
     } catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).send(error);
     }
 });
 
@@ -117,7 +117,7 @@ router.delete('/user/profile', auth, async (req, res) => {
         await req.user.remove();
         res.send(req.user);
     } catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     }
 });
 

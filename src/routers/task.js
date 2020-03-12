@@ -13,7 +13,7 @@ router.post('/task', auth, async (req, res) => {
         res.status(201).send(task);    
     } catch(error) {
         res.status(400);
-        res.send(error.message);
+        res.send(error);
     };
 });
 
@@ -50,7 +50,7 @@ router.get('/tasks', auth, async (req, res) => {
         }
         res.send(tasks);
     }catch(error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     }
 });
 
@@ -64,7 +64,7 @@ router.get('/task/:id', auth, async (req, res) => {
         }
         res.send(task);
     } catch(error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     }
 });
 
@@ -91,7 +91,7 @@ router.patch('/task/:id', auth, async (req, res) => {
         
         res.send(task);
     } catch(error) {
-        res.status(400).send(error.message);
+        res.status(400).send(error);
     }
 });
 
@@ -103,7 +103,7 @@ router.delete('/task/:id', auth, async (req, res) => {
         }
         res.send(task);
     } catch(error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     }
 });
 

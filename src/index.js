@@ -1,6 +1,4 @@
 const express = require('express');
-const Task = require('./models/task');
-const { ObjectID } = require('mongodb');
 const userRouter = require('./routers/user');
 const taskRouter = require('./routers/task');
 require('./db/mongooseApp');
